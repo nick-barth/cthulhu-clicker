@@ -11,34 +11,46 @@
 </head>
 
 <body>
-    <div class="container" ng-app='InsanityApp' ng-controller="LunacyCtrl">
-        <div class="row">
-            <h1> Cthulhu Clicker </h1>
-            <div class='col-md-8'>
-              <img ng-click="click()" class='main-img' src='img/main.jpg'>
-              <div class='currencies'>
-                Madness: <span ng-bind='madness'></span>
-              </div>
+    <div ng-app='InsanityApp' ng-controller="LunacyCtrl">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
             </div>
-            <div class='col-md-6 upgrade-pane'>
-              <div ng-repeat="upgrade in madness_upgrades">
-                <div class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
-                  {{upgrade.name}}
-                  {{upgrade.desc}}
-                  {{upgrade.cost}}
-                  {{upgrade.total}}
+            <div class="row">
+                <h1> Cthulhu Clicker </h1>
+                <div class='col-md-8'>
+                    <img ng-click="click()" class="img-responsive main-img" alt="Responsive image" src='img/main.jpg'>
+                    <div class='currencies'>
+                        Madness: <span ng-bind='madness'></span>
+                    </div>
                 </div>
-              </div>
+                <div class='col-md-2 upgrade-pane'>
+                    <div ng-repeat="upgrade in madness_upgrades">
+                        <div class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                            {{upgrade.name}} {{upgrade.desc}} {{upgrade.cost}} {{upgrade.total}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.2/lodash.js'></script>
-    <script src="app.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.2/lodash.js'></script>
+        <script src="app.js"></script>
 </body>
 
 </html>
