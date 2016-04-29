@@ -1,5 +1,17 @@
-
-
+/* MAIN */
+html{
+background-color:#5c8a8a;
+}
 .main-img{
 width:280px;
+}
+.container-fluid{
+  font-family: 'Poiret One', cursive;
+  background-color:#5c8a8a;
+}
+/* Upgrade Cards */
+.upgrade-card{
+  background-color:grey;
+  border: 1px solid #fff;
+  width:100%;
 }

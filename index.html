@@ -6,37 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cthulhu Clicker</title>
-    <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css" >
+    <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='styles.css'>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div ng-app='InsanityApp' ng-controller="LunacyCtrl">
-            <div class="row">
-                <h1> Cthulhu Clicker </h1>
-                <div class='col-md-8'>
-                    <img ng-click="click()" class="img-responsive main-img" alt="Responsive image" src='img/main.jpg'>
-                    <div class='currencies'>
-                        Madness: <span ng-bind='madness'></span>
-                    </div>
+    <div class="container-fluid" ng-app='InsanityApp' ng-controller="LunacyCtrl">
+        <div class="row">
+            <h1> Cthulhu Clicker </h1>
+            <div class='col-md-4 col-md-offset-2'>
+                <img ng-click="click()" class="img-responsive main-img" alt="Responsive image" src='img/main.jpg'>
+                <div class='currencies'>
+                    Madness: <span ng-bind='madness'></span>
                 </div>
-                <div class='col-md-2 upgrade-pane'>
-                    <div ng-repeat="upgrade in madness_upgrades">
-                        <div class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
-                            {{upgrade.name}} {{upgrade.desc}} {{upgrade.cost}} {{upgrade.total}}
-                        </div>
+            </div>
+            <div class='col-md-4 upgrade-pane'>
+                <div ng-repeat="upgrade in madness_upgrades">
+                    <div class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                        {{upgrade.name}} {{upgrade.desc}} {{upgrade.cost}} {{upgrade.total}}
                     </div>
                 </div>
             </div>
         </div>
-      </div>
+    </div>
 
-        <script src="libs/jquery/jquery-1.12.3.min.js"></script>
-        <script src="libs/bootstrap/bootstrap.min.js"></script>
-        <script src="libs/angular/angular.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.2/lodash.js'></script>
-        <script src="app.js"></script>
+    <script src="libs/jquery/jquery-1.12.3.min.js"></script>
+    <script src="libs/bootstrap/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
