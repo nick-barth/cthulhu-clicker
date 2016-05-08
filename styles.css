@@ -1,17 +1,37 @@
 /* MAIN */
-html{
-background-color:#5c8a8a;
+
+html {
+    background-color: #5c8a8a;
 }
-.main-img{
-width:280px;
+.main-img {
+    width: 280px;
 }
-.container-fluid{
-  font-family: 'Poiret One', cursive;
-  background-color:#5c8a8a;
+.container-fluid {
+    font-family: 'Poiret One', cursive;
+    background-color: #5c8a8a;
 }
+
 /* Upgrade Cards */
-.upgrade-card{
-  background-color:grey;
-  border: 1px solid #fff;
-  width:100%;
+
+.upgrade-card {
+    background-color: grey;
+    border: 1px solid #ADD8E6;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+}
+.more-currency {
+    border-color: #fff;
+}
+.more-currency:active {
+    border-color: red;
 }
