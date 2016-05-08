@@ -21,7 +21,21 @@
             increase: 1,
             modifier: 0,
             visible: 1
+          },
+          {
+            id: 1,
+            name: 'Hooded Chanter',
+            desc: "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn",
+            total: 0,
+            cost: 10,
+            cost_increase: function(){
+              return this.total * 2;
+            },
+            increase: 1,
+            modifier: 0,
+            visible: 1
           }
+
         ];
 
         $interval(function() {
