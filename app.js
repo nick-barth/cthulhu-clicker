@@ -33,7 +33,7 @@
                 rate: 0,
                 costType: 'madness',
                 cost_increase: function() {
-                    return this.total * 2;
+                    return this.total * 20;
                 },
                 increase: 10,
                 modifier: 0,
@@ -71,7 +71,7 @@
                 $scope.madness_rate = $scope.madness_rate + upgrade.increase;
                 upgrade.total++;
                 upgrade.cost = upgrade.cost + upgrade.cost_increase();
-            } 
+            }
         }
 
     }]);
