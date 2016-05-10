@@ -3,8 +3,8 @@
     var app = angular.module('InsanityApp', []);
 
     app.controller('LunacyCtrl', ['$scope', '$interval', function($scope, $interval) {
-        $scope.madness = 0;
-        $scope.lunacy = 0;
+        $scope.madness = 10000;
+        $scope.lunacy = 100000;
         $scope.lunacy_rate = 0;
         $scope.madness_rate = 0;
         $scope.click_rate = 1;
@@ -28,6 +28,38 @@
                 id: 1,
                 name: 'Priest of the Old Gods',
                 desc: "Smoke stained, yellowed, tattered, tainted, sacrosanct",
+                total: 0,
+                cost: 100,
+                rate: 0,
+                costType: 'madness',
+                cost_increase: function() {
+                    return this.total * 20;
+                },
+                increase: 10,
+                modifier: 0,
+                visible: 0
+            }
+
+        ];
+
+        $scope.lunacy_upgrades = [{
+                id: 0,
+                name: 'A small bas relief sculpture',
+                desc: "Sinister with latent horror",
+                total: 0,
+                cost: 10,
+                rate: 0,
+                costType: 'madness',
+                cost_increase: function() {
+                    return this.total * 2;
+                },
+                increase: 1,
+                modifier: 0,
+                visible: 1
+            }, {
+                id: 1,
+                name: 'An ancient viol',
+                desc: "A morose crescendo, the infinite abyss",
                 total: 0,
                 cost: 100,
                 rate: 0,

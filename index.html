@@ -14,30 +14,90 @@
 <body>
     <div class="container-fluid" ng-app='InsanityApp' ng-controller="LunacyCtrl">
         <div class="row">
-            <h1> Cthulhu Clicker </h1>
-            <div class='col-md-4 col-md-offset-2'>
+            <h1 class='center'> Cthulhu Clicker </h1>
+            <div class='col-sm-4 col-sm-offset-2'>
                 <img ng-click="click()" class="img-responsive main-img" alt="Responsive image" src='img/main.jpg'>
                 <div class='currencies'>
-                    Madness: <span ng-bind='madness'></span>
-                    Madness Rate: <span ng-bind='madness_rate'></span> per second   
+                    Madness: <span ng-bind='madness'></span> Madness Rate: <span ng-bind='madness_rate'></span> per second
                 </div>
             </div>
-            <div class='col-md-4 upgrade-pane'>
-                <div ng-repeat="upgrade in madness_upgrades">
-                    <div data-id='{{upgrade.id}}' ng-class="{'more-currency': madness < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
-                        <div class='upgrade-name'>{{upgrade.name}}s: {{upgrade.total}} x {{upgrade.increase}} </div>
-                        <div class='upgrade-desc'>{{upgrade.desc}}</div>
-                        <div class='upgrade-cost'>Cost: {{upgrade.cost}}</div>
+            <div class='col-sm-4'>
+                <div id="exTab3" class="container">
+                    <div class='col-sm-6'>
+                        <ul class="nav nav-pills upgrade-nav">
+                            <li class="active">
+                                <a href="#1b" data-toggle="tab">Madness</a>
+                            </li>
+                            <li><a href="#2b" data-toggle="tab">Lunacy</a>
+                            </li>
+                            <li><a href="#3b" data-toggle="tab">Souls</a>
+                            </li>
+                            <li><a href="#4a" data-toggle="tab">Monuments</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content clearfix">
+                            <div class="tab-pane active" id="1b">
+                                <div class='upgrade-pane'>
+                                    <div class='madness_tab'>
+                                        <div ng-repeat="upgrade in madness_upgrades">
+                                            <div data-id='{{upgrade.id}}' ng-class="{'more-currency': madness < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                                                <div class='upgrade-name'>{{upgrade.name}}: {{upgrade.total}} x {{upgrade.increase}} </div>
+                                                <div class='upgrade-desc'>{{upgrade.desc}}</div>
+                                                <div class='upgrade-cost'>Cost: {{upgrade.cost}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="2b">
+                                <div class='upgrade-pane'>
+                                    <div class='lunacy_tab'>
+                                        <div ng-repeat="upgrade in lunacy_upgrades">
+                                            <div data-id='{{upgrade.id}}' ng-class="{'more-currency': lunacy < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                                                <div class='upgrade-name'>{{upgrade.name}}: {{upgrade.total}} x {{upgrade.increase}} </div>
+                                                <div class='upgrade-desc'>{{upgrade.desc}}</div>
+                                                <div class='upgrade-cost'>Cost: {{upgrade.cost}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="3b">
+                                <div class='upgrade-pane'>
+                                    <div class='madness_tab'>
+                                        <div ng-repeat="upgrade in madness_upgrades">
+                                            <div data-id='{{upgrade.id}}' ng-class="{'more-currency': souls < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                                                <div class='upgrade-name'>{{upgrade.name}}: {{upgrade.total}} x {{upgrade.increase}} </div>
+                                                <div class='upgrade-desc'>{{upgrade.desc}}</div>
+                                                <div class='upgrade-cost'>Cost: {{upgrade.cost}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="4b">
+                                <div class='upgrade-pane'>
+                                    <div class='madness_tab'>
+                                        <div ng-repeat="upgrade in monuments_upgrades">
+                                            <div data-id='{{upgrade.id}}' ng-class="{'more-currency': monuments < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                                                <div class='upgrade-name'>{{upgrade.name}}: {{upgrade.total}} x {{upgrade.increase}} </div>
+                                                <div class='upgrade-desc'>{{upgrade.desc}}</div>
+                                                <div class='upgrade-cost'>Cost: {{upgrade.cost}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="libs/jquery/jquery-1.12.3.min.js"></script>
-    <script src="libs/bootstrap/bootstrap.min.js"></script>
-    <script src="libs/angular/angular.js"></script>
-    <script src="app.js"></script>
+        <script src="libs/jquery/jquery-1.12.3.min.js"></script>
+        <script src="libs/bootstrap/bootstrap.min.js"></script>
+        <script src="libs/angular/angular.js"></script>
+        <script src="app.js"></script>
 </body>
 
 </html>

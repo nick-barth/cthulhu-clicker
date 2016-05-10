@@ -3,12 +3,31 @@
 html {
     background-color: #5c8a8a;
 }
+h1 {
+  text-style:bold;
+  color:#fff;
+}
 .main-img {
     width: 280px;
 }
 .container-fluid {
     font-family: 'Poiret One', cursive;
     background-color: #5c8a8a;
+}
+.center{
+  text-align:center;
+}
+/* upgrade tabs */
+.upgrade-nav li a{
+color:#fff;
+
+}
+.nav-pills > li.active > a{
+  background-color:#2E4068;
+}
+.upgrade-pane{
+padding-top:20px;
+width:100%;
 }
 
 /* Upgrade Cards */
