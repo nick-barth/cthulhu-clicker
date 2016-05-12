@@ -38,7 +38,52 @@
                 increase: 10,
                 modifier: 0,
                 visible: 0
-            }
+            },
+            {
+                id: 2,
+                name: 'Rat',
+                desc: "Cats recoil in horror from their once usual prey",
+                total: 0,
+                cost: 10,000,
+                rate: 0,
+                costType: 'madness',
+                cost_increase: function() {
+                    return this.total * 20;
+                },
+                increase: 100,
+                modifier: 0,
+                visible: 0
+            },
+            {
+                id: 3,
+                name: 'Outsider',
+                desc: "He who was amongst the catacombs of Nephren-Ka",
+                total: 0,
+                cost: 100,000,
+                rate: 0,
+                costType: 'madness',
+                cost_increase: function() {
+                    return this.total * 20;
+                },
+                increase: 1000,
+                modifier: 0,
+                visible: 0
+            },
+            {
+                id: 4,
+                name: 'Human?',
+                desc: "Almost, has a certain Innsmouth look",
+                total: 0,
+                cost: 1,000,000,
+                rate: 0,
+                costType: 'madness',
+                cost_increase: function() {
+                    return this.total * 20;
+                },
+                increase: 10,
+                modifier: 0,
+                visible: 0
+            },
 
         ];
 
@@ -59,7 +104,7 @@
             }, {
                 id: 1,
                 name: 'An ancient viol',
-                desc: "A morose crescendo, the infinite abyss",
+                desc: "A shrieking crescendo, the infinite abyss",
                 total: 0,
                 cost: 100,
                 rate: 0,
