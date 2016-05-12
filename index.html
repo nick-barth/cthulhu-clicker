@@ -18,15 +18,15 @@
                     Cthulhu Clicker
                 </h1>
                 <div class='col-sm-4 col-sm-offset-2'>
-                    <img ng-click="click()" class="img-responsive main-img" alt="Responsive image" src='img/main.jpg'>
+                    <img ng-click="craftClick()" class="img-responsive main-img" alt="Responsive image" src='img/main.jpg'>
                     <div class='currencies'>
                         <div>
                             Madness:
-                            <span class='madness-counter' ng-bind='madness | number: 0'></span>
+                            <span class='madness-counter' ng-bind='game.madness | number: 0'></span>
                         </div>
                         <div>
                             Madness Rate:
-                            <span ng-bind='madness_rate'></span>
+                            <span ng-bind='game.madness_rate'></span>
                             per second
                         </div>
                     </div>
@@ -52,8 +52,8 @@
                                 <div class="tab-pane active" id="1b">
                                     <div class='upgrade-pane'>
                                         <div class='madness_tab'>
-                                            <div ng-repeat="upgrade in madness_upgrades">
-                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': madness < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                                            <div ng-repeat="upgrade in game.madness_upgrades">
+                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': game.madness < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='Click(upgrade.id)'>
                                                     <div class='upgrade-name'>{{upgrade.name}}:
                                                         {{upgrade.total}}
                                                         x
@@ -71,7 +71,7 @@
                                     <div class='upgrade-pane'>
                                         <div class='lunacy_tab'>
                                             <div ng-repeat="upgrade in lunacy_upgrades">
-                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': lunacy < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': lunacy < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='Click(upgrade.id)'>
                                                     <div class='upgrade-name'>{{upgrade.name}}:
                                                         {{upgrade.total}}
                                                         x
@@ -89,7 +89,7 @@
                                     <div class='upgrade-pane'>
                                         <div class='madness_tab'>
                                             <div ng-repeat="upgrade in souls_upgrades">
-                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': souls < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': game.souls < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
                                                     <div class='upgrade-name'>{{upgrade.name}}:
                                                         {{upgrade.total}}
                                                         x
@@ -106,8 +106,8 @@
                                 <div class="tab-pane" id="4b">
                                     <div class='upgrade-pane'>
                                         <div class='madness_tab'>
-                                            <div ng-repeat="upgrade in monuments_upgrades">
-                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': monuments < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
+                                            <div ng-repeat="upgrade in game.monuments_upgrades">
+                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': game.monuments < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
                                                     <div class='upgrade-name'>{{upgrade.name}}:
                                                         {{upgrade.total}}
                                                         x

@@ -3,15 +3,15 @@
     var app = angular.module('InsanityApp', []);
 
     app.controller('LunacyCtrl', ['$scope', '$interval', function($scope, $interval) {
-        var game = {};
-        $scope.madness = 10000;
-        $scope.lunacy = 100000;
-        $scope.lunacy_rate = 0;
-        $scope.madness_rate = 0;
-        $scope.click_rate = 1;
-        $scope.total_madness = 0;
+        $scope.game = {};
+        $scope.game.madness = 10000;
+        $scope.game.lunacy = 100000;
+        $scope.game.lunacy_rate = 0;
+        $scope.game.madness_rate = 0;
+        $scope.game.click_rate = 1;
+        $scope.game.total_madness = 0;
 
-        $scope.madness_upgrades = [{
+        $scope.game.madness_upgrades = [{
                 id: 0,
                 name: 'Hooded Chanter',
                 desc: "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn",
@@ -85,7 +85,7 @@
 
         ];
 
-        $scope.lunacy_upgrades = [{
+        $scope.game.lunacy_upgrades = [{
                 id: 0,
                 name: 'A small bas relief sculpture',
                 desc: "Sinister with latent horror",
@@ -114,7 +114,6 @@
                 modifier: 0,
                 visible: 0
             }
-
         ];
 
         /*---------------------------------------
@@ -122,30 +121,30 @@
         ----------------------------------------*/
 
         $interval(function() {
-            const lastStepMadness = $scope.madness;
-            $scope.madness = $scope.madness + ($scope.madness_rate / 10);
-            $scope.total_madness = $scope.total_madness + $scope.madness_rate;
+            const lastStepMadness = $scope.game.madness;
+            $scope.game.madness = $scope.game.madness + ($scope.game.madness_rate / 10);
+            $scope.game.total_madness = $scope.game.total_madness + $scope.game.madness_rate;
             $scope.checkVisibility();
         }, 100);
 
         $scope.checkVisibility = function() {
-            for (var i = 0; i < $scope.madness_upgrades.length; i++) {
-                if ($scope.madness_upgrades[i].visible != 1 && $scope.madness > $scope.madness_upgrades[i].cost) {
-                    $scope.madness_upgrades[i].visible = 1;
+            for (var i = 0; i < $scope.game.madness_upgrades.length; i++) {
+                if ($scope.game.madness_upgrades[i].visible != 1 && $scope.game.madness > $scope.game.madness_upgrades[i].cost) {
+                    $scope.game.madness_upgrades[i].visible = 1;
                 }
             }
         }
 
-        $scope.click = function() {
-            $scope.madness = $scope.madness + $scope.click_rate;
-            $scope.total_madness = $scope.total_madness + $scope.madness_rate;
+        $scope.craftClick = function() {
+            $scope.game.madness = $scope.game.madness + $scope.game.click_rate;
+            $scope.game.total_madness = $scope.game.total_madness + $scope.game.madness_rate;
         }
-        $scope.upgradeClick = function(id) {
-            var upgrade = $scope.madness_upgrades[id];
-            if ($scope.madness >= upgrade.cost) {
+        $scope.Click = function(id) {
+            var upgrade = $scope.game.madness_upgrades[id];
+            if ($scope.game.madness >= upgrade.cost) {
                 upgrade.rate = upgrade.rate + upgrade.increase;
-                $scope.madness = $scope.madness - upgrade.cost;
-                $scope.madness_rate = $scope.madness_rate + upgrade.increase;
+                $scope.game.madness = $scope.game.madness - upgrade.cost;
+                $scope.game.madness_rate = $scope.game.madness_rate + upgrade.increase;
                 upgrade.total++;
                 upgrade.cost = upgrade.cost + upgrade.cost_increase();
 
