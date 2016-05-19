@@ -3,7 +3,8 @@
     var app = angular.module('InsanityApp', []);
 
     app.controller('LunacyCtrl', ['$scope', '$interval', function($scope, $interval) {
-        var gamestate = localStorage.getItem('StateOfMadness');
+        //  var gamestate = localStorage.getItem('StateOfMadness');
+        var gamestate = 0;
         if (gamestate) {
             $scope.game = JSON.parse(gamestate);
         } else {
@@ -14,109 +15,82 @@
             $scope.game.madness_rate = 0;
             $scope.game.click_rate = 1;
             $scope.game.total_madness = 0;
-            $scope.game.madness_upgrades = [{
-                    id: 0,
-                    name: 'Hooded Chanter',
-                    desc: "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn",
-                    total: 0,
-                    cost: 10,
-                    rate: 0,
-                    costType: 'madness',
-                    cost_increase: function() {
-                        return this.total * 2;
-                    },
-                    increase: 1,
-                    modifier: 0,
-                    visible: 1
-                }, {
-                    id: 1,
-                    name: 'Priest of the Old Gods',
-                    desc: "Smoke stained, yellowed, tattered, tainted, sacrosanct",
-                    total: 0,
-                    cost: 100,
-                    rate: 0,
-                    costType: 'madness',
-                    cost_increase: function() {
-                        return this.total * 20;
-                    },
-                    increase: 10,
-                    modifier: 0,
-                    visible: 0
-                }, {
-                    id: 2,
-                    name: 'Rat',
-                    desc: "Cats recoil in horror from their once usual prey",
-                    total: 0,
-                    cost: 10000,
-                    rate: 0,
-                    costType: 'madness',
-                    cost_increase: function() {
-                        return this.total * 20;
-                    },
-                    increase: 100,
-                    modifier: 0,
-                    visible: 0
-                }, {
-                    id: 3,
-                    name: 'Outsider',
-                    desc: "He who was amongst the catacombs of Nephren-Ka",
-                    total: 0,
-                    cost: 100000,
-                    rate: 0,
-                    costType: 'madness',
-                    cost_increase: function() {
-                        return this.total * 20;
-                    },
-                    increase: 1000,
-                    modifier: 0,
-                    visible: 0
-                }, {
-                    id: 4,
-                    name: 'Human?',
-                    desc: "Almost, has a certain Innsmouth look",
-                    total: 0,
-                    cost: 1000000,
-                    rate: 0,
-                    costType: 'madness',
-                    cost_increase: function() {
-                        return this.total * 20;
-                    },
-                    increase: 10,
-                    modifier: 0,
-                    visible: 0
-                },
-
-            ];
-
-            $scope.game.lunacy_upgrades = [{
-                id: 0,
-                name: 'A small bas relief sculpture',
-                desc: "Sinister with latent horror",
-                total: 0,
-                cost: 10,
-                rate: 0,
-                costType: 'madness',
-                cost_increase: function() {
-                    return this.total * 2;
-                },
-                increase: 1,
-                modifier: 0,
-                visible: 1
+            var madness_upgrades = [{
+                "id": 0,
+                "name": "Rat",
+                "desc": "Cats recoil in horror from their once usual prey",
+                "costtype": "madness",
+                "cost": 1,
+                "rate": 0,
+                "costmodifier": 1.5,
+                "increase": 1,
+                "total": 0,
+                "modifier": 0,
+                "visible": 1
             }, {
-                id: 1,
-                name: 'An ancient viol',
-                desc: "A shrieking crescendo, the infinite abyss",
-                total: 0,
-                cost: 100,
-                rate: 0,
-                costType: 'madness',
-                cost_increase: function() {
-                    return this.total * 20;
-                },
-                increase: 10,
-                modifier: 0,
-                visible: 0
+                "id": 1,
+                "name": "Drug Addict",
+                "desc": "sunken eyes only hold murmors and shadows",
+                "costtype": "madness",
+                "cost": 100,
+                "rate": 0,
+                "costmodifier": 1.5,
+                "increase": 10,
+                "total": 0,
+                "modifier": 0,
+                "visible": 0
+            }, {
+                "id": 2,
+                "name": "Grave Digger",
+                "desc": "Now fears what was once mundane",
+                "costtype": "madness",
+                "cost": 10000,
+                "rate": 0,
+                "costmodifier": 1.2,
+                "increase": 100,
+                "total": 0,
+                "modifier": 0,
+                "visible": 0
+            }, {
+                "id": 3,
+                "name": "Hermit",
+                "desc": "Isolated, but aware",
+                "costtype": "madness",
+                "cost": 100000,
+                "rate": 0,
+                "costmodifier": 1.5,
+                "increase": 1000,
+                "total": 0,
+                "modifier": 0,
+                "visible": 0
+            }, {
+                "id": 4,
+                "name": "Sailor",
+                "desc": "Spreading stories and disease",
+                "costtype": "madness",
+                "cost": 1000000,
+                "rate": 0,
+                "costmodifier": 1.5,
+                "increase": 10000,
+                "total": 0,
+                "modifier": 0,
+                "visible": 0
+            }, {
+                "id": 5,
+                "name": "Child",
+                "desc": "Purity is an impropriety",
+                "costtype": "madness",
+                "cost": 10000000,
+                "rate": 0,
+                "costmodifier": 1,
+                "increase": 100000,
+                "total": 0,
+                "modifier": 0,
+                "visible": 0
             }];
+            madness_upgrades = JSON.stringify(madness_upgrades);
+            $scope.game.madness_upgrades = JSON.parse(madness_upgrades);
+
 
         }
 
@@ -162,7 +136,7 @@
                 $scope.game.madness = $scope.game.madness - upgrade.cost;
                 $scope.game.madness_rate = $scope.game.madness_rate + upgrade.increase;
                 upgrade.total++;
-                upgrade.cost = upgrade.cost + upgrade.cost_increase();
+                upgrade.cost = upgrade.cost * upgrade.costmodifier;
 
             }
         }
