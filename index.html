@@ -53,7 +53,7 @@
                                     <div class='upgrade-pane'>
                                         <div class='madness_tab'>
                                             <div ng-repeat="upgrade in game.madness_upgrades">
-                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': game.madness < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='Click(upgrade.id)'>
+                                                <div data-id='{{upgrade.id}}' ng-class="{'more-currency': game.madness < upgrade.cost}" ng-if='upgrade.visible == 1' class='upgrade-card' ng-click='upgradeClick(upgrade.id)'>
                                                     <div class='upgrade-name'>{{upgrade.name}}:
                                                         {{upgrade.total}}
                                                         x
